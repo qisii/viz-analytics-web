@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="home-container">
+
+    <!-- Topbar -->
+    {% include 'partials/_topbar.html' %}
+
+    <!-- Home Main Content -->
+    <div class="home-content" id="home">
+        <div class="home-heading-container">
+            <div class="home-heading">
+                DATA<br>VISUALIZATION
+            </div>
+            <div class="sub-heading">
+                Develop dashboards for the web app, applying the principles <br>of data storytelling to effectively communicate information about the data.
+            </div>
+            <div class="buttons-container">
+                <a href="/project1" class="action-button">Get Started</a>
+                <button class="member-button">Members</button>
+            </div>
+        </div>
+        
+        <!-- 3D image -->
+        <img src="{% static '/images/business-3d-growing-bar-chart.png' %}" alt="3D Image" class="image1">
+        <img src="{% static '/images/business-3d-paper-page-with-statistics-graphs.png' %}" alt="3D Image" class="image2">
+        <img src="{% static '/images/octagon-figure-form-geometry-graphic-line-svgrepo-com.png' %}" alt="octagon" class="image3">
+        <img src="{% static '/images/circle-shape-figure-form-geometry-graphic-svgrepo-com.png' %}" alt="circle" class="image4">
+    </div>
+
+    </div>
+
+    <div id="members-section" class="members-section">
+        <p class="member-subheading">Presenting</p>
+        <p class="member-heading">Our Team Members</p>
+        <div class="member-card">
+            <span class="material-icons-sharp user-icon">person</span>
+            <h3>Member Name</h3>
+            <hr class="member-line">
+            <p>Member</p>
+        </div>
+        <div class="member-card">
+            <span class="material-icons-sharp user-icon">person</span>
+            <h3>Member Name</h3>
+            <hr class="member-line">
+            <p>Member</p>
+        </div>
+        <div class="member-card">
+            <span class="material-icons-sharp user-icon">person</span>
+            <h3>Member Name</h3>
+            <hr class="member-line">
+            <p>Member</p>
+        </div>
+        <div class="member-card">
+            <span class="material-icons-sharp user-icon">person</span>
+            <h3>Member Name</h3>
+            <hr class="member-line">
+            <p>Member</p>
+        </div>
+        <div class="member-card">
+            <span class="material-icons-sharp user-icon">person</span>
+            <h3>Member Name</h3>
+            <hr class="member-line">
+            <p>Member</p>
+        </div>
+        <div class="buttons-container">
+            <a href="/project1" class="action-button">Get Started</a>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

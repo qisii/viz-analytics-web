@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}Project 3{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+
+    <!-- Topbar -->
+    {% include 'partials/_topbar.html' %}
+
+    <!-- Main Content -->
+    <div class="viz-content">
+        <!-- Page Headings -->
+        <p class="page-subheading">Dashboard</p>
+        <p class="page-heading">Lorem ipsum dolor sit amet</p>
+        <div class="overview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam nisi ac nisl scelerisque, et condimentum felis congue.
+        </div>
+        <div class="page-content">
+            <div class="columns-container">
+                <!-- Narration -->
+                <div class="narration-column">
+                    <div class="narration-display">
+                        <hr class="narration-hr">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam nisi ac nisl scelerisque, et condimentum felis congue.</p>
+                    </div>
+                </div>
+                <!-- Form -->
+                <div class="form-column">
+                    <div class="form-display">
+                        <form>
+                            <!-- <label for="date">Date:</label> -->
+                            <input type="date" id="date" name="date">
+                
+                            <!-- <label for="month">Month:</label> -->
+                            <div class="custom-select">
+                                <span class="material-icons-sharp">expand_more</span>
+                                <select id="month" name="month">
+                                    <!-- Add your location options here -->
+                                    <option value="">Select Month</option>
+                                    <option value=""></option>
+                                    <!-- Add other locations as needed -->
+                                </select>
+                            </div>
+                
+                            <!-- <label for="year">Year:</label> -->
+                            <div class="custom-select">
+                                <span class="material-icons-sharp">expand_more</span>
+                                <select id="year" name="year">
+                                    <!-- Add your location options here -->
+                                    <option value="">Select Year</option>
+                                    <option value=""></option>
+                                    <!-- Add other locations as needed -->
+                                </select>
+                            </div>
+                
+                            <!-- <label for="location">Location:</label> -->
+                            <!-- <select id="location" name="location">
+                                <option value="">Select Location</option>
+                                <option value="manila">Manila</option>
+                            </select> -->
+
+                            <div class="custom-select">
+                                <span class="material-icons-sharp">expand_more</span>
+                                <select id="location" name="location">
+                                    <!-- Add your location options here -->
+                                    <option value="">Select Location</option>
+                                    <option value=""></option>
+                                    <!-- Add other locations as needed -->
+                                </select>
+                            </div>
+                
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                    <!-- End of Form -->
+
+                    <!-- Chart -->
+                    <div class="chart-column">
+                        <div class="chart-display">
+                            
+                        </div>
+                    </div>
+                    <!-- End of Chart -->
+
+                </div>
+                <!-- End of Form Column -->
+            </div>
+            <!-- End of Column Container -->
+        </div>
+        <hr class="more-hr">
+        <!-- End of Page Content -->
+    </div>
+</div>
+{% endblock %}

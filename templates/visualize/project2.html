@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Project 2{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+
+    <!-- Topbar -->
+    {% include 'partials/_topbar.html' %}
+
+    <!-- Geo Main Content -->
+    <div class="viz-content">
+        <!-- Page Headings -->
+        <p class="page-subheading">Dashboard</p>
+        <p class="page-heading">Pizza Hut Location in United States</p>
+        <div class="overview">The Dengue dataset spanning from 2016 to 2021 provides a comprehensive overview of Dengue fever cases in the Philippines, according to the Department of Health's Epidemiology Bureau.
+            The dataset includes crucial information such as location, reported cases, deaths, date of occurrence, and regional classifications.
+            Our dashboard aims to identify the number of dengue cases and total number of deaths in each province from year 2016 to 2021.
+        </div>
+        <div class="geo-content">
+            <div class="geo-container">
+                <!-- Form -->
+                <div class="form-geo">
+                    <div class="form-geo-display">
+                        <form>
+                
+                            <!-- <label for="type">Type:</label> -->
+                            <div class="custom-select">
+                                <span class="material-icons-sharp">expand_more</span>
+                                <select id="type" name="type">
+                                    <!-- Add your type options here -->
+                                    <option value="">Select Type</option>
+                                    <option value="type"></option>
+                                    <!-- Add other type as needed -->
+                                </select>
+                            </div>
+                
+                            <!-- <label for="location">Location:</label> -->
+                            <!-- <select id="location" name="location">
+                                <option value="">Select Location</option>
+                                <option value="manila">Manila</option>
+                            </select> -->
+
+                            <div class="custom-select">
+                                <span class="material-icons-sharp">expand_more</span>
+                                <select id="city" name="city">
+                                    <!-- Add your city options here -->
+                                    <option value="">Select City</option>
+                                    <option value="">Manila</option>
+                                    <!-- Add other city as needed -->
+                                </select>
+                            </div>
+                
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                    <!-- End of Form -->
+
+                    <!-- Chart -->
+                    <div class="chart-geo-column">
+                        <div class="chart-geo-display">
+                            
+                        </div>
+                    </div>
+                    <!-- End of Chart -->
+
+                    <hr class="more-hr">
+                </div>
+                <!-- End of Form Column -->
+            </div>
+            <!-- End of Column Container -->
+        </div>
+        <!-- End of Page Content -->
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    
+    <!-- Chart.js -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script> -->
+
+    <title>Data Visualization | {% block title %}{% endblock %} </title>
+</head>
+<body>
+
+    <div>
+        <!-- Includes components with different container names
+            and to dynamically manage the container class in the
+            'base.html' based on the content of the specific page
+        -->
+        <div>
+            {% block content %}
+
+            {% endblock %}
+        </div>
+
+    </div>
+    
+    <!-- Scripts -->
+    <!-- <script src="{% static 'js/index.js' %}"></script> -->
+    <!-- <script src="{% static 'js/script.js' %}"></script> -->
+    
+    {% load static %}
+    <!-- when every page that is rendered, access the
+        pages are basically going to be wrapped in here
+    -->
+    <!-- <script src="{% static 'js/main.js' %}"></script> -->
+    <script src="{% static 'js/script.js' %}"></script>
+    <!-- <script src="{% static 'js/project1.js' %}"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+    <!-- Scroll Reveal Effects -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+</body>
+</html>
