@@ -12,3 +12,25 @@ const showMenu = (toggleId, navId) => {
 };
 
 showMenu("nav-toggle", "nav-menu");
+
+// scroll reveal animations
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollReveal = ScrollReveal({
+    duration: 1000,
+    reset: true,
+  });
+
+  // home
+  scrollReveal.reveal(".main-section", {
+    origin: "bottom",
+    distance: "20px",
+    delay: 100,
+  });
+
+  // cards
+  scrollReveal.reveal(".cards-section", {
+    origin: "bottom",
+    distance: "20px",
+    delay: 100,
+  });
+});
