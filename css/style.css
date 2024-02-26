@@ -316,6 +316,10 @@ img {
   background: var(--dark-light);
 }
 
+.active {
+  font-weight: 800;
+}
+
 /* show menu */
 .show-menu {
   opacity: 1;
@@ -366,6 +370,10 @@ img {
 .dropdown-link:hover,
 .dropdown-sublink:hover {
   background: var(--foreground-black);
+}
+
+.dropdown-link.active {
+  font-weight: 900;
 }
 
 .dropdown-menu,
