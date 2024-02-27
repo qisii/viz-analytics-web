@@ -86,6 +86,10 @@ a {
   margin-inline: 1.5rem;
 }
 
+/* section {
+  margin-top: 6rem;
+} */
+
 /* header */
 .header {
   position: fixed;
@@ -163,11 +167,17 @@ img {
   width: 100%;
 }
 
+.main-section {
+  margin-top: 6rem;
+}
+
+/* ============================= CUSTOM CSS */
 /* =================== home page */
 .main {
   display: grid;
   gap: 2.5rem;
   overflow: hidden;
+  margin-top: 6rem;
 }
 
 .main-image img {
@@ -277,6 +287,8 @@ img {
 .row .social-icons i:hover {
   color: var(--blue);
 }
+
+/* ==================== viz1 page */
 
 /*==================== navigation for mobile devices */
 @media screen and (max-width: 1118px) {
@@ -419,7 +431,7 @@ img {
 
   /* home page */
   .main-section {
-    margin-top: 3.5rem;
+    margin-top: 4rem;
   }
 
   .main-content h1 {
@@ -447,6 +459,12 @@ img {
   .cards-grid {
     grid-template-columns: repeat(3, 1fr);
     margin-inline: 0 auto;
+  }
+}
+
+@media screen and (width: 800px) {
+  .cards-grid {
+    gap: 2rem;
   }
 }
 
@@ -535,7 +553,7 @@ img {
   }
 
   /* home page */
-  .main-section {
+  .main {
     grid-template-columns: 3fr 3fr;
     align-items: center;
     margin-top: 6rem;
