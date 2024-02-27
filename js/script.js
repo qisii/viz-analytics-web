@@ -24,13 +24,13 @@ document.addEventListener("DOMContentLoaded", function () {
   scrollReveal.reveal(".main-section", {
     origin: "bottom",
     distance: "20px",
-    delay: 100,
+    delay: 200,
   });
 
   // cards
   scrollReveal.reveal(".cards-section", {
     origin: "bottom",
     distance: "20px",
-    delay: 100,
+    delay: 200,
   });
 });
