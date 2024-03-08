@@ -287,7 +287,7 @@ img {
 /* footer */
 .footer {
   box-shadow: var(--box-shadow);
-  margin-top: 5rem;
+  margin-top: 4rem;
 }
 
 .footer .row {
@@ -316,8 +316,9 @@ img {
 /* ==================== viz1 page */
 .line-section {
   display: grid;
+  height: 80vh;
   grid-template-columns: 30% auto;
-  margin: 1rem 0;
+  margin: 1rem 0 1.5rem 0;
   grid-gap: 1rem;
 }
 
@@ -328,10 +329,15 @@ img {
   padding: 1rem;
 }
 
+.graph-content {
+  margin-bottom: 1rem;
+}
+
 .narration {
   background: var(--grid);
-  border-radius: 0.5rem;
+  border-radius: 0.4rem;
   padding: 0.5rem 1rem;
+  font-size: var(--small-font-size);
 }
 
 /*==================== navigation for mobile devices */
