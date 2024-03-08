@@ -314,6 +314,25 @@ img {
 }
 
 /* ==================== viz1 page */
+.line-section {
+  display: grid;
+  grid-template-columns: 30% auto;
+  margin: 1rem 0;
+  grid-gap: 1rem;
+}
+
+.form-card,
+.graph-card {
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.narration {
+  background: var(--grid);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}
 
 /*==================== navigation for mobile devices */
 @media screen and (max-width: 1118px) {
