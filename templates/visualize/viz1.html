@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block title %}Dengue Report | Line & Bar{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="">
+
+    <!-- Topbar -->
+    {% include 'partials/_topbar.html' %}
+
+    <!-- Dengue Report Main Content -->
+    <section class="viz main-section container">
+        <div class="heading-text">
+          <span>Visualization - Line & Bar</span>
+          <h3>Dengue Report</h3>
+          <p>
+            The Dengue dataset spanning from 2016 to 2021 provides a comprehensive
+            overview of Dengue fever cases in the Philippines, according to the
+            Department of Health's Epidemiology Bureau. The dataset includes
+            crucial information such as location, reported cases, deaths, date of
+            occurrence, and regional classifications. Our dashboard aims to
+            identify the total number of dengue cases and deaths in each province
+            from year 2016 to 2021.
+          </p>
+        </div>
+
+          <!-- form, chart, and narration starts -->
+        <div class="line-section">
+          <!-- form -->
+          <div class="form-card">
+            <form method="POST" action="">
+              {% csrf_token %}
+
+              <input
+                type="date"
+                id="date"
+                name="date"
+                value="{% if selected_date %}{{ selected_date|date:'Y-m-d' }}{% endif %}"
+              />
+
+            <div class="select-menu">
+
+              <select class="select-btn" tabindex="0" id="month" name="month">
+                <!-- <span class="select-text">Select Month</span> -->
+                
+                <option value="">Select Month</option>
+                {% for month in unique_months %}
+                    <option value="{{ month }}" {% if month == selected_month %}selected{% endif %}>{{ month }}</option>
+                {% endfor %}
+              </select>
+              <i class="ri-arrow-down-s-line"></i>
+
+              <!-- <ul class="options">
+                {% for month in unique_months %}
+                <li class="option" value="{{ month }}" {% if month == selected_month %}selected{% endif %}><span class="option-text">{{ month }}</span></li>
+                {% endfor %}
+              </ul> -->
+            </div>
+
+            <div class="select-menu" tabindex="0" id="year" name="year">
+              <select class="select-btn" tabindex="0" id="year" name="year">
+                
+                <option value="">Select Year</option>
+                {% for year in unique_years %}
+                    <option value="{{ year }}" {% if year == selected_year %}selected{% endif %}>{{ year }}</option>
+                {% endfor %}
+              </select>
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+
+            <div class="select-menu" tabindex="0" id="location" name="location">
+              <select class="select-btn" tabindex="0" id="location" name="location">
+                
+                <option value="">Select Location</option>
+                {% for location in locations %}
+                    <option value="{{ location }}" {% if location == selected_location %}selected{% endif %}>{{ location }}</option>
+                {% endfor %}
+              </select>
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+
+            <div class="select-menu" tabindex="0" id="region" name="region">
+              <select class="select-btn" tabindex="0" id="region" name="region">
+                
+                <option value="">Select Region</option>
+                {% for region in regions %}
+                    <option value="{{ region }}" {% if region == selected_region %}selected{% endif %}>{{ region }}</option>
+                {% endfor %}
+              </select>
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+
+            <button type="submit">
+              Submit <i class="ri-send-plane-line"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- charts -->
+        <div class="graph-card">
+          <div class="graph-content">
+            {{ chart_html|safe }}
+          </div>
+          <!-- narration -->
+          <div class="narration">
+            <p>{{ narration|safe }}</p>
+          </div>
+        </div>
+      </div>
+      <!-- form, chart, and narration ends -->
+    </section>
+
+    <!-- viz1 section end -->
+
+
+
+</div>
+<!-- End of Container -->
+{% if messages %}
+    {% for message in messages %}
+    <script>   
+         swal('{{ message }}');
+    </script>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}

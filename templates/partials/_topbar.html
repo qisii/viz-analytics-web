@@ -1,20 +1,81 @@
-{% load static %}
-<div class="topbar">
-    <div class="brand">Group</div>
-    <div class="links">
-        <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
-        <a href="/project1" class="{% if request.path == '/project1/' %}active{% endif %}">Project 1</a>
-        <a href="/project2" class="{% if request.path == '/project2/' %}active{% endif %}">Project 2</a>
-        <a href="/project3" class="{% if request.path == '/project3/' %}active{% endif %}">Project 3</a>
+<!-- header start -->
+<header class="header">
+  <nav class="nav container">
+    <div class="nav-data">
+      <a href="/" class="nav-logo"> <i class="ri-database-2-line"></i>Data </a>
+
+      <div class="nav-toggle" id="nav-toggle">
+        <i class="ri-menu-line toggle-open"></i>
+        <i class="ri-close-line toggle-close"></i>
+      </div>
     </div>
-    <!-- <div class="member-menu">
-        <button class="dropbtn">
-            <span class="material-icons-sharp">account_circle</span>Members
-        </button>
-        <div class="dropdown-content">
-            <span>Member Name</span>
-            <span>Member Name</span>
-            <span>Member Name</span>
-        </div>
-    </div> -->
-</div>
+
+    <!-- nav menu -->
+    <div class="nav-menu" id="nav-menu">
+      <ul class="nav-list">
+        <li>
+          <a
+            href="/"
+            class="nav-link {% if request.path == '/' or request.path == '/home/' %}active{% endif %}"
+            >Home</a
+          >
+        </li>
+        <!-- dropdown 1 -->
+        <li class="dropdown-item">
+          <div
+            class="nav-link {% if request.path == '/viz1/' or request.path == '/viz2/' %}active{% endif %}"
+          >
+            Visualization
+            <i class="ri-arrow-down-s-line dropdown-arrow"></i>
+          </div>
+          <ul class="dropdown-menu">
+            <!-- dropdown submenu -->
+            <li class="dropdown-subitem">
+              <div class="dropdown-link {% if request.path == '/viz1/' or request.path == '/viz2/' %}active{% endif %}"">
+                <i class="ri-file-chart-line"></i>Dengue Report
+                <i class="ri-add-line dropdown-add"></i>
+              </div>
+              <ul class="dropdown-submenu">
+                <li>
+                  <a
+                    href="/viz1"
+                    class="dropdown-sublink {% if request.path == '/viz1/' %}active{% endif %}"
+                  >
+                    <i class="ri-bar-chart-line"></i> Line & Bar
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/viz2"
+                    class="dropdown-sublink {% if request.path == '/viz2/' %}active{% endif %}"
+                  >
+                    <i class="ri-map-pin-5-line"></i> Geoplot
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <!-- dropdown 2 -->
+        <li class="dropdown-item">
+          <div class="nav-link">
+            Analytics <i class="ri-arrow-down-s-line dropdown-arrow"></i>
+          </div>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/analytics1l" class="dropdown-link"
+                ><i class="ri-line-chart-line"></i>Mobile Price Prediction</a
+              >
+            </li>
+            <li>
+              <a href="/analytics2" class="dropdown-link"
+                ><i class="ri-line-chart-line"></i>Milk Prediction</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<!-- header end -->

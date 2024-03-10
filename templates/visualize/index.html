@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Data Visualization and Analytics | Home{% endblock %}
 
 {% block content %}
 {% load static %}
@@ -10,66 +10,75 @@
     {% include 'partials/_topbar.html' %}
 
     <!-- Home Main Content -->
-    <div class="home-content" id="home">
-        <div class="home-heading-container">
-            <div class="home-heading">
-                DATA<br>VISUALIZATION
-            </div>
-            <div class="sub-heading">
-                Develop dashboards for the web app, applying the principles <br>of data storytelling to effectively communicate information about the data.
-            </div>
-            <div class="buttons-container">
-                <a href="/project1" class="action-button">Get Started</a>
-                <button class="member-button">Members</button>
-            </div>
+    <!-- main section start -->
+    <section class="main main-section container">
+        <div class="main-image">
+          <img src="{% static '/images/Site Stats-amico.png' %}" alt="" />
         </div>
-        
-        <!-- 3D image -->
-        <img src="{% static '/images/business-3d-growing-bar-chart.png' %}" alt="3D Image" class="image1">
-        <img src="{% static '/images/business-3d-paper-page-with-statistics-graphs.png' %}" alt="3D Image" class="image2">
-        <img src="{% static '/images/octagon-figure-form-geometry-graphic-line-svgrepo-com.png' %}" alt="octagon" class="image3">
-        <img src="{% static '/images/circle-shape-figure-form-geometry-graphic-svgrepo-com.png' %}" alt="circle" class="image4">
-    </div>
+        <div class="main-content">
+          <h1>
+            Data Visualization
+            <span class="viz-span"><i class="ri-computer-line"></i></span>
+            & Analytics
+            <span class="analytics-span"
+              ><i class="ri-bubble-chart-line"></i
+            ></span>
+          </h1>
+          <p>
+            Develop dashboards for the web app, applying the principles of data
+            storytelling to effectively communicate information about the data.
+          </p>
+        </div>
+      </section>
+      <!-- main section end -->
 
     </div>
 
-    <div id="members-section" class="members-section">
-        <p class="member-subheading">Presenting</p>
-        <p class="member-heading">Our Team Members</p>
-        <div class="member-card">
-            <span class="material-icons-sharp user-icon">person</span>
-            <h3>Member Name</h3>
-            <hr class="member-line">
-            <p>Member</p>
+    <!-- card section start -->
+    <section class="cards cards-section container">
+        <h2>Features</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <img src="{% static '/images/Statistics-rafiki (1).png' %}" alt="" />
+            <h4>Data Visualization</h4>
+            <p>
+              Explore the data using line charts, bar graphs, and geoplots.
+              Visualize trends and patterns to gain insights.
+            </p>
+          </div>
+          <div class="card">
+            <img src="{% static '/images/Projections-rafiki (1).png' %}" alt="" />
+            <h4>Data Analytics</h4>
+            <p>
+              Make predictions and derive meaningful insights, including
+              predictive analysis, from the data
+            </p>
+          </div>
+          <div class="card">
+            <img src="{% static '/images/Site Stats-pana (1).png' %}" alt="" />
+            <h4>Dynamic Inputs</h4>
+            <p>Explore the data dynamically by selecting different options.</p>
+          </div>
         </div>
-        <div class="member-card">
-            <span class="material-icons-sharp user-icon">person</span>
-            <h3>Member Name</h3>
-            <hr class="member-line">
-            <p>Member</p>
+      </section>
+      <!-- card section end -->
+
+    <!-- footer section start -->
+    <footer class="footer" id="footer">
+        <div class="footer-content container">
+          <div class="row">
+            <div class="column">
+              <p>&#169; 2024 QMC. All Rights Reserved.</p>
+            </div>
+            <div class="social-icons">
+              <a href="#"><i class="ri-github-fill"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="member-card">
-            <span class="material-icons-sharp user-icon">person</span>
-            <h3>Member Name</h3>
-            <hr class="member-line">
-            <p>Member</p>
-        </div>
-        <div class="member-card">
-            <span class="material-icons-sharp user-icon">person</span>
-            <h3>Member Name</h3>
-            <hr class="member-line">
-            <p>Member</p>
-        </div>
-        <div class="member-card">
-            <span class="material-icons-sharp user-icon">person</span>
-            <h3>Member Name</h3>
-            <hr class="member-line">
-            <p>Member</p>
-        </div>
-        <div class="buttons-container">
-            <a href="/project1" class="action-button">Get Started</a>
-        </div>
-    </div>
+      </footer>
+      <!-- footer section end -->
+
+
 </div>
 
 <script src="{% static 'js/main.js' %}"></script>
