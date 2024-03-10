@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     reset: true,
   });
 
-  // home
+  // home, viz, and analytics
   scrollReveal.reveal(".main-section", {
     origin: "bottom",
     distance: "20px",

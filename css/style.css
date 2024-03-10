@@ -255,12 +255,14 @@ input[type="date"]:focus {
 
 .select-menu .options {
   position: absolute;
+  height: 35vh;
   padding: 0.5rem;
   width: 100%;
   background: var(--light);
   box-shadow: var(--box-shadow);
   border-radius: 0.4rem;
   margin-top: 0.5rem;
+  overflow-y: auto;
   z-index: 1;
   display: none;
 }
