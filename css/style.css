@@ -194,6 +194,116 @@ img {
   text-align: justify;
 }
 
+/* input fields */
+.form-card form {
+  /* grid */
+  padding-top: 2rem;
+}
+
+.select-menu {
+  position: relative;
+}
+
+.select-btn,
+button {
+  display: flex;
+  height: 50px;
+  width: 100%;
+  padding: 0 1rem;
+  margin-top: 0.5rem;
+  font-size: var(--small-font-size);
+  border: 0.1rem solid var(--grid);
+  border-radius: 0.4rem;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  transition: 0.3s;
+}
+
+button {
+  margin-top: 6rem;
+  font-family: var(--body-font);
+  background-color: var(--blue);
+  color: var(--light);
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button i {
+  margin: 0 0.5rem;
+}
+
+button:hover {
+  background: var(--light-blue);
+  color: var(--blue);
+}
+
+input[type="date"] {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  padding: 0 1rem;
+  border: 0.1rem solid var(--grid);
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.select-menu:focus-within .select-btn,
+input[type="date"]:focus {
+  border: 0.1rem solid var(--dark);
+  outline: none;
+}
+
+.select-btn i {
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.select-text {
+  font-weight: normal;
+}
+
+.select-menu .options {
+  position: absolute;
+  padding: 0.5rem;
+  width: 100%;
+  background: var(--light);
+  box-shadow: var(--box-shadow);
+  border-radius: 0.4rem;
+  margin-top: 0.5rem;
+  z-index: 1;
+  display: none;
+}
+
+.select-menu.active .options {
+  display: block;
+}
+
+.options .option {
+  display: flex;
+  height: 35px;
+  cursor: pointer;
+  padding: 0 1rem;
+  border-radius: 0.4rem;
+  align-items: center;
+}
+
+.options .option:hover {
+  background: var(--grid);
+}
+
+.option .option-text {
+  font-size: var(--small-font-size);
+  font-weight: normal;
+}
+
+/* buttons */
+
 /* ============================= CUSTOM CSS */
 /* =================== home page */
 .main {
@@ -337,7 +447,7 @@ img {
   background: var(--grid);
   border-radius: 0.4rem;
   padding: 0.5rem 1rem;
-  font-size: var(--small-font-size);
+  font-size: var(--smaller-font-size);
 }
 
 /*==================== navigation for mobile devices */
@@ -485,7 +595,7 @@ img {
   }
 
   .main-content h1 {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     margin-bottom: 1rem;
   }
 
@@ -514,6 +624,11 @@ img {
   .heading-text p {
     text-align: justify;
   }
+
+  /* visualization */
+  .line-section {
+    grid-template-columns: 100%;
+  }
 }
 
 /* for small devices */
@@ -525,9 +640,19 @@ img {
   }
 }
 
-@media screen and (width: 800px) {
+@media screen and (width <= 800px) {
   .cards-grid {
     gap: 2rem;
+  }
+
+  /* visualization */
+  .line-section {
+    grid-template-columns: 100%;
+    height: auto;
+  }
+
+  button {
+    margin: 1rem 0 2rem 0;
   }
 }
 

@@ -34,3 +34,31 @@ document.addEventListener("DOMContentLoaded", function () {
     delay: 200,
   });
 });
+
+// select menu input fields
+document.querySelectorAll(".select-menu").forEach((menu) => {
+  const selectBtn = menu.querySelector(".select-btn");
+  const options = menu.querySelectorAll(".option");
+  const optionText = menu.querySelector(".select-text");
+
+  selectBtn.addEventListener("click", () => {
+    // Close any already open select menus
+    document.querySelectorAll(".select-menu").forEach((otherMenu) => {
+      if (otherMenu !== menu) {
+        otherMenu.classList.remove("active");
+      }
+    });
+
+    // Toggle the current menu
+    menu.classList.toggle("active");
+  });
+
+  options.forEach((option) => {
+    option.addEventListener("click", () => {
+      let selected = option.querySelector(".option-text").innerText;
+      optionText.innerText = selected;
+      menu.classList.remove("active"); // Close the select menu after selection
+      console.log(selected);
+    });
+  });
+});

@@ -95,6 +95,115 @@
     </header>
     <!-- header end -->
 
+    <!-- analytics1 section start -->
+    <section class="viz1 main-section container">
+      <div class="heading-text">
+        <span>Analytics - Prediction</span>
+        <h3>Mobile Price</h3>
+        <p>
+          The Dengue dataset spanning from 2016 to 2021 provides a comprehensive
+          overview of Dengue fever cases in the Philippines, according to the
+          Department of Health's Epidemiology Bureau. The dataset includes
+          crucial information such as location, reported cases, deaths, date of
+          occurrence, and regional classifications. Our dashboard aims to
+          identify the total number of dengue cases and deaths in each province
+          from year 2016 to 2021.
+        </p>
+      </div>
+
+      <!-- form, chart, and narration starts -->
+      <div class="line-section">
+        <!-- form -->
+        <div class="form-card">
+          <form action="POST">
+            <!-- <label for="date">Date:</label> -->
+
+            <input
+              type="date"
+              id="date"
+              name="date"
+              value="{% if selected_date %}{{ selected_date|date:'Y-m-d' }}{% endif %}"
+            />
+
+            <div class="select-menu">
+              <!-- <i class="ri-calendar-line"></i> -->
+
+              <div class="select-btn" tabindex="0">
+                <span class="select-text">Select Month</span>
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+
+              <ul class="options">
+                <li class="option"><span class="option-text">January</span></li>
+                <li class="option">
+                  <span class="option-text">February</span>
+                </li>
+                <li class="option"><span class="option-text">March</span></li>
+              </ul>
+            </div>
+
+            <div class="select-menu" tabindex="0">
+              <div class="select-btn">
+                <span class="select-text">Select Year</span>
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+
+              <ul class="options">
+                <li class="option"><span class="option-text">2020</span></li>
+                <li class="option"><span class="option-text">2021</span></li>
+                <li class="option"><span class="option-text">2022</span></li>
+              </ul>
+            </div>
+
+            <div class="select-menu" tabindex="0">
+              <div class="select-btn">
+                <span class="select-text">Select Location</span>
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+
+              <ul class="options">
+                <li class="option"><span class="option-text">2020</span></li>
+                <li class="option"><span class="option-text">2021</span></li>
+                <li class="option"><span class="option-text">2022</span></li>
+              </ul>
+            </div>
+
+            <div class="select-menu" tabindex="0">
+              <div class="select-btn">
+                <span class="select-text">Select Region</span>
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+
+              <ul class="options">
+                <li class="option"><span class="option-text">2020</span></li>
+                <li class="option"><span class="option-text">2021</span></li>
+                <li class="option"><span class="option-text">2022</span></li>
+              </ul>
+            </div>
+
+            <button type="submit">
+              Submit <i class="ri-send-plane-line"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- charts -->
+        <div class="graph-card">
+          <div class="graph-content">
+            graph
+            <!-- <canvas id="canvas" width="100%"></canvas> -->
+          </div>
+          <!-- narration -->
+          <div class="narration">
+            <p>narration</p>
+          </div>
+        </div>
+      </div>
+      <!-- form, chart, and narration ends -->
+    </section>
+
+    <!-- analytics1 section end -->
+
     <!-- MAIN JS -->
     <script src="js/script.js"></script>
     <!-- <script src="https://unpkg.com/scrollreveal"></script> -->
