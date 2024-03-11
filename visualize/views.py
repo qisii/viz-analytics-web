@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 from .models import Dengue
 from io import BytesIO, StringIO
+from django.shortcuts import render
 import base64
 import matplotlib
 import matplotlib.pyplot as plt
@@ -461,7 +462,30 @@ def project1(request):
 
 # dengue geo
 def project2(request):
-    return render(request, 'visualize/viz2.html')
+
+    dengue_data = Dengue.objects.all()
+    df = pd.DataFrame(list(dengue_data.values()))
+    df = clean_data(df)
+
+    # values for the dropdowns
+    locations = sorted(df['loc'].unique())
+    regions = sorted(df['region'].unique())
+    
+    # Group by city and calculate total cases and deaths
+    city_totals = df.groupby('loc').agg({'cases': 'sum', 'deaths': 'sum'}).reset_index()
+    
+    # Convert city_totals DataFrame to a list of dictionaries
+    city_data = city_totals.to_dict(orient='records')
+
+    print("City Data:", city_data)
+
+    context = {
+        'city_data': city_data,
+        'locations': locations,
+        'regions': regions,
+    }
+
+    return render(request, 'visualize/viz2.html', context)
 
 
 # mobile prediction

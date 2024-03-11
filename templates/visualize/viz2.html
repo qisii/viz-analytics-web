@@ -1,77 +1,94 @@
 {% extends 'base.html' %}
 
-{% block title %}Project 2{% endblock %}
+{% block title %}Dengue Report | Mapping{% endblock %}
 
 {% block content %}
 {% load static %}
-<div class="container">
+<div class="">
 
     <!-- Topbar -->
     {% include 'partials/_topbar.html' %}
 
-    <!-- Geo Main Content -->
-    <div class="viz-content">
-        <!-- Page Headings -->
-        <p class="page-subheading">Dashboard</p>
-        <p class="page-heading">Pizza Hut Location in United States</p>
-        <div class="overview">The Dengue dataset spanning from 2016 to 2021 provides a comprehensive overview of Dengue fever cases in the Philippines, according to the Department of Health's Epidemiology Bureau.
-            The dataset includes crucial information such as location, reported cases, deaths, date of occurrence, and regional classifications.
-            Our dashboard aims to identify the number of dengue cases and total number of deaths in each province from year 2016 to 2021.
+    <!-- Dengue Report Main Content -->
+    <section class="viz main-section container">
+        <div class="heading-text">
+          <span>Visualization - Mapping</span>
+          <h3>Dengue Report</h3>
+          <p>
+            The Dengue dataset spanning from 2016 to 2021 provides a comprehensive
+            overview of Dengue fever cases in the Philippines, according to the
+            Department of Health's Epidemiology Bureau. The dataset includes
+            crucial information such as location, reported cases, deaths, date of
+            occurrence, and regional classifications. Our dashboard aims to
+            identify the total number of dengue cases and deaths in each province
+            from year 2016 to 2021.
+          </p>
         </div>
-        <div class="geo-content">
-            <div class="geo-container">
-                <!-- Form -->
-                <div class="form-geo">
-                    <div class="form-geo-display">
-                        <form>
-                
-                            <!-- <label for="type">Type:</label> -->
-                            <div class="custom-select">
-                                <span class="material-icons-sharp">expand_more</span>
-                                <select id="type" name="type">
-                                    <!-- Add your type options here -->
-                                    <option value="">Select Type</option>
-                                    <option value="type"></option>
-                                    <!-- Add other type as needed -->
-                                </select>
-                            </div>
-                
-                            <!-- <label for="location">Location:</label> -->
-                            <!-- <select id="location" name="location">
-                                <option value="">Select Location</option>
-                                <option value="manila">Manila</option>
-                            </select> -->
 
-                            <div class="custom-select">
-                                <span class="material-icons-sharp">expand_more</span>
-                                <select id="city" name="city">
-                                    <!-- Add your city options here -->
-                                    <option value="">Select City</option>
-                                    <option value="">Manila</option>
-                                    <!-- Add other city as needed -->
-                                </select>
-                            </div>
-                
-                            <button type="submit">Submit</button>
-                        </form>
-                    </div>
-                    <!-- End of Form -->
+        <!-- form, chart, and narration starts -->
+        <div class="line-section">
+          <!-- form -->
+          <div class="form-card">
+            <form method="POST" action="">
+              {% csrf_token %}
 
-                    <!-- Chart -->
-                    <div class="chart-geo-column">
-                        <div class="chart-geo-display">
-                            
-                        </div>
-                    </div>
-                    <!-- End of Chart -->
+              <div class="select-menu" tabindex="0" id="location" name="location">
+                <select class="select-btn" tabindex="0" id="location" name="location">
+                  <option value="">Select Location</option>
+                  {% for location in locations %}
+                      <option value="{{ location }}" {% if location == selected_location %}selected{% endif %}>{{ location }}</option>
+                  {% endfor %}
+                </select>
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
 
-                    <hr class="more-hr">
-                </div>
-                <!-- End of Form Column -->
-            </div>
-            <!-- End of Column Container -->
+              <div class="select-menu" tabindex="0" id="region" name="region">
+                <select class="select-btn" tabindex="0" id="region" name="region">
+                  <option value="">Select Region</option>
+                  {% for region in regions %}
+                      <option value="{{ region }}" {% if region == selected_region %}selected{% endif %}>{{ region }}</option>
+                  {% endfor %}
+                </select>
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+
+              <button type="submit">
+                Submit <i class="ri-send-plane-line"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Map Container -->
+          <div class="graph-card">
+            <div class="graph-content" id="map" style="height: 500px;"></div>
+            {{ city_data|json_script:"city_data_json" }}
+          </div>
         </div>
-        <!-- End of Page Content -->
-    </div>
+        <!-- form, chart ends -->
+    </section>
+
+    <!-- viz1 section end -->
 </div>
+<!-- End of Container -->
+
+{% if messages %}
+    {% for message in messages %}
+    <script>   
+         swal('{{ message }}');
+    </script>
+    {% endfor %}
+{% endif %}
+
+<script>
+// Initialize Leaflet map
+var map = L.map('map').setView([12.8797, 121.7740], 6);
+
+// Add OpenStreetMap as the base layer
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+
+</script>
+
 {% endblock %}
