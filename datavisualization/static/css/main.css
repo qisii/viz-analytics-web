@@ -212,6 +212,11 @@ img {
   padding-top: 2rem;
 }
 
+.form-card .form-content {
+  display: flex;
+  flex-direction: column;
+}
+
 .select-menu {
   position: relative;
 }
@@ -321,7 +326,6 @@ input[type="date"]:focus {
 /* buttons */
 
 button {
-  margin-top: 10rem;
   font-family: var(--body-font);
   background-color: var(--blue);
   color: var(--light);
