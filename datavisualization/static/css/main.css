@@ -267,19 +267,6 @@ input[type="date"] {
   pointer-events: none; /* Ensure the icon doesn't interfere with click events */
 }
 
-.select-menu select option {
-  background-color: #fff; /* Background color */
-  color: #333; /* Text color */
-  font-family: "Poppins", sans-serif; /* Font family */
-  font-size: var(--small-font-size);
-  padding: 0 1rem;
-  border: none;
-}
-
-.select-menu select option:hover {
-  background-color: var(--grid);
-}
-
 .select-menu:focus-within .select-btn,
 input[type="date"]:focus {
   border: 0.1rem solid var(--dark);

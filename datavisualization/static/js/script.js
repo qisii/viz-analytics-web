@@ -62,3 +62,24 @@ document.querySelectorAll(".select-menu").forEach((menu) => {
     });
   });
 });
+
+// ajax for custom select dropdown
+document.addEventListener("DOMContentLoaded", function () {
+  var selectBtn = document.querySelector(".select-btn");
+  var options = document.querySelectorAll(".options .option");
+
+  options.forEach(function (option) {
+    option.addEventListener("click", function () {
+      var selectedYear = this.dataset.value;
+      var selectedYearText = this.querySelector(".option-text").textContent;
+      document.getElementById("selectedYear").value = selectedYear;
+      document.getElementById("selectedYearText").textContent =
+        selectedYearText;
+    });
+  });
+
+  // Optionally, you can submit the form automatically upon selection
+  // selectBtn.addEventListener('click', function() {
+  //     document.getElementById('myForm').submit();
+  // });
+});
