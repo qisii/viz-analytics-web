@@ -170,7 +170,7 @@ img {
 }
 
 .main-section {
-  margin-top: 6rem;
+  margin-top: 7rem;
 }
 
 /* .viz,
@@ -361,7 +361,7 @@ button:hover {
   display: grid;
   gap: 2.5rem;
   overflow: hidden;
-  margin-top: 6rem;
+  margin-top: 6.5rem;
 }
 
 .main-image img {
@@ -798,7 +798,7 @@ button:hover {
   .main {
     grid-template-columns: 3fr 3fr;
     align-items: center;
-    margin-top: 6rem;
+    /* margin-top: 6rem; */
   }
 
   .main-content h1,
