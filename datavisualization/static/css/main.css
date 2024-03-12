@@ -583,14 +583,14 @@ button:hover {
   align-items: center;
   font-size: var(--smaller-font-size);
   column-gap: 0.5rem;
-  font-weight: var(--font-semi-bold);
+  font-weight: normal;
   transition: background 0.3s;
 }
 
 .dropdown-link i,
 .dropdown-sublink i {
   font-size: 1.25rem;
-  font-weight: initial;
+  font-weight: normal;
 }
 
 .dropdown-link:hover,
@@ -598,7 +598,7 @@ button:hover {
   background: var(--foreground-black);
 }
 
-.dropdown-link.active,
+.dropdown-subitem .dropdown-link.active,
 .dropdown-sublink.active {
   font-weight: 900;
 }
@@ -768,6 +768,7 @@ button:hover {
 
   .dropdown-subitem .dropdown-link {
     padding-inline: 1rem;
+    font-weight: normal;
   }
 
   .dropdown-submenu {

@@ -15,13 +15,7 @@
           <span>Visualization - Mapping</span>
           <h3>Dengue Report</h3>
           <p>
-            The Dengue dataset spanning from 2016 to 2021 provides a comprehensive
-            overview of Dengue fever cases in the Philippines, according to the
-            Department of Health's Epidemiology Bureau. The dataset includes
-            crucial information such as location, reported cases, deaths, date of
-            occurrence, and regional classifications. Our dashboard aims to
-            identify the total number of dengue cases and deaths in each province
-            from year 2016 to 2021.
+            The Dengue dataset from 2016 to 2021 offers insights into Dengue fever cases in the Philippines, sourced from the Department of Health's Epidemiology Bureau. It includes location data, facilitating mapping of cases and fatalities, aiding in targeted interventions for disease control.
           </p>
         </div>
 
@@ -80,6 +74,7 @@
 {% endif %}
 
 <script>
+// Parse city data JSON
 let city_data = JSON.parse(document.getElementById('city_data_json').textContent);
 
 // Initialize Leaflet map
@@ -90,7 +85,18 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+// Function to create custom pizza icon
+var pizzaIcon = L.icon({
+    iconUrl: '.././static/images/pizza.png',
+    iconSize: [32, 32], // size of the icon
+    iconAnchor: [16, 16], // point of the icon which will correspond to marker's location
+});
 
+// Iterate through city data to add markers on the map
+city_data.forEach(function(city) {
+    var marker = L.marker([city.latitude, city.longitude], { icon: pizzaIcon }).addTo(map);
+    marker.bindPopup(`<b>${city.loc}</b><br>Cases: ${city.cases}<br>Deaths: ${city.deaths}`);
+});
 </script>
 
 {% endblock %}
