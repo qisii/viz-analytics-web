@@ -36,8 +36,8 @@
                 <i class="ri-arrow-down-s-line"></i>
             </div>
 
-              <div class="select-menu" tabindex="0" id="region" name="region">
-                <select class="select-btn" tabindex="0" id="region" name="region">
+              <div class="select-menu" tabindex="0" id="type" name="type">
+                <select class="select-btn" tabindex="0" id="type" name="type">
                   <option value="">Select Type</option>
                   <option value="cases">Cases</option>
                   <option value="deaths">Deaths</option>
@@ -104,6 +104,8 @@
           });
 
           markers.push(marker);
+
+          
       }
   });
 
@@ -112,7 +114,7 @@
       event.preventDefault(); // Prevent default form submission
 
       let selectedLocation = document.getElementById('locationSelect').value;
-      let selectedType = document.getElementById('region').value;
+      let selectedType = document.getElementById('type').value;
 
       markers.forEach(marker => {
             marker.closePopup(); // Close any open popups
