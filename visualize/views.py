@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 
 # added
 import json
+from geopy.geocoders import Nominatim
 from django.http import HttpResponse
 import pandas as pd
 import numpy as np
@@ -461,8 +462,8 @@ def project1(request):
 
 
 # dengue geo
-def project2(request):
 
+def project2(request):
     dengue_data = Dengue.objects.all()
     df = pd.DataFrame(list(dengue_data.values()))
     df = clean_data(df)
@@ -474,6 +475,10 @@ def project2(request):
     # Group by city and calculate total cases and deaths
     city_totals = df.groupby('loc').agg({'cases': 'sum', 'deaths': 'sum'}).reset_index()
     
+    # Geocode locations
+    geolocator = Nominatim(user_agent="dengue_mapping")
+    city_totals['coordinates'] = city_totals['loc'].apply(lambda x: geocode_location(x, geolocator))
+
     # Convert city_totals DataFrame to a list of dictionaries
     city_data = city_totals.to_dict(orient='records')
 
@@ -486,6 +491,19 @@ def project2(request):
     }
 
     return render(request, 'visualize/viz2.html', context)
+
+def geocode_location(location, geolocator):
+    location += ", Philippines"
+    try:
+        location = geolocator.geocode(location)
+        if location:
+            return (location.latitude, location.longitude)
+        else:
+            return None
+    except Exception as e:
+        print(f"Error geocoding {location}: {e}")
+        return None
+
 
 
 # mobile prediction

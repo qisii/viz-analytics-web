@@ -75,43 +75,33 @@
 
 <script>
 
-  // Function to create custom pizza icon
-  var mapIcon = L.icon({
-      iconUrl: '{% static "images/blue_point.png" %}',
-      iconSize: [20, 20], // size of the icon
-      iconAnchor: [16, 16], // point of the icon which will correspond to marker's location
-  });
-  
-  // Parse city data JSON
-  let city_data = JSON.parse(document.getElementById('city_data_json').textContent);
-  
-  // Initialize Leaflet map
-  // Philippines coordinates
-  var map = L.map('map').setView([12.8797, 121.7740], 6);
-  
-  // Add OpenStreetMap as the base layer
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-  
-  // Add markers for each city
-  city_data.forEach(city => {
-      if (city.coordinates) {
-          let marker = L.marker(city.coordinates, {icon: mapIcon}).addTo(map)
-              .bindPopup(`<b>${city.loc}</b><br>Cases: ${city.cases}<br>Deaths: ${city.deaths}`);
-          
-          // Bind click event to marker for zooming
-          marker.on('click', function() {
-              map.setView(city.coordinates, 10); // Adjust zoom level as needed
-          });
-  
-          // Bind popup close event to reset original zoom view
-          marker.on('popupclose', function() {
-              map.setView([12.8797, 121.7740], 6); // Set back to original view
-          });
-      }
-  });
-  
-  </script>
+// Function to create custom pizza icon
+var mapIcon = L.icon({
+    iconUrl: '{% static "images/blue_point.png" %}',
+    iconSize: [32, 32], // size of the icon
+    iconAnchor: [16, 16], // point of the icon which will correspond to marker's location
+});
+
+// Parse city data JSON
+let city_data = JSON.parse(document.getElementById('city_data_json').textContent);
+
+// Initialize Leaflet map
+// Philippines coordinates
+var map = L.map('map').setView([12.8797, 121.7740], 6);
+
+// Add OpenStreetMap as the base layer
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+// Add markers for each city
+city_data.forEach(city => {
+    if (city.coordinates) {
+        L.marker(city.coordinates, {icon: mapIcon}).addTo(map)
+            .bindPopup(`<b>${city.loc}</b><br>Cases: ${city.cases}<br>Deaths: ${city.deaths}`);
+    }
+});
+
+</script>
 
 {% endblock %}
