@@ -410,6 +410,7 @@ button:hover {
   padding: 1rem 1.5rem;
   text-align: center;
   border-radius: 0.5rem;
+  background: var(--light);
   box-shadow: var(--box-shadow);
   transition: 0.3s;
 }
@@ -426,13 +427,13 @@ button:hover {
   text-align: justify;
 }
 
-.card:nth-child(odd) {
+/* .card:nth-child(odd) {
   background: var(--light-red);
 }
 
 .card:nth-child(even) {
   background: var(--light-blue);
-}
+} */
 
 .card:hover {
   transform: translateY(-10px);
