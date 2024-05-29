@@ -165,7 +165,6 @@ a {
 }
 
 img {
-  display: flex;
   width: 100%;
 }
 
@@ -207,10 +206,6 @@ img {
 
 /* ================================ viz and analytics page */
 /* input fields */
-.form-card form {
-  /* grid */
-  padding-top: 2rem;
-}
 
 .form-card .form-content {
   display: flex;
@@ -237,7 +232,12 @@ button {
   transition: 0.3s;
 }
 
-input[type="date"] {
+.select-menu.input {
+  margin-bottom: 0.5rem;
+}
+
+input[type="date"],
+input[type="text"] {
   position: relative;
   height: 50px;
   width: 100%;
@@ -260,8 +260,19 @@ input[type="date"] {
   width: 100%; /* Ensure select box takes full width */
 }
 
+.select-menu .input-name {
+  position: absolute;
+  top: 50%;
+  left: 1rem; /* Adjust position as needed */
+  transform: translateY(-50%);
+  font-size: var(--small-font-size);
+  font-weight: normal;
+  z-index: 1;
+}
+
 /* Style the custom arrow icon */
-.select-menu i {
+.select-menu i,
+.select-menu .sample {
   position: absolute;
   top: 50%;
   right: 1rem; /* Adjust position as needed */
@@ -270,6 +281,11 @@ input[type="date"] {
   font-weight: normal;
 
   pointer-events: none; /* Ensure the icon doesn't interfere with click events */
+}
+
+.select-menu .sample {
+  font-size: var(--smaller-font-size);
+  color: var(--dark-grey);
 }
 
 .select-menu:focus-within .select-btn,
@@ -365,8 +381,10 @@ button:hover {
 }
 
 .main-image img {
-  max-width: 500px;
+  display: flex;
+  width: 500px;
   margin-inline: auto;
+  /* margin: 4rem 0 4rem 0; */
 }
 
 .main-content h1 {
@@ -393,7 +411,7 @@ button:hover {
 
 /* cards */
 .cards h2 {
-  margin-top: 4rem;
+  margin-top: 5.2rem;
   font-size: 2rem;
   text-align: center;
   font-weight: var(--font-semi-bold);
@@ -403,11 +421,11 @@ button:hover {
   margin-top: 2rem;
   display: grid;
   gap: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 
 .card {
-  padding: 1rem 1.5rem;
+  padding: 1.5rem;
   text-align: center;
   border-radius: 0.5rem;
   background: var(--light);
@@ -441,9 +459,9 @@ button:hover {
 }
 
 .card img {
-  max-width: 200px;
-  margin-inline: auto;
-  margin-bottom: 1rem;
+  width: 200px;
+  height: 125px;
+  margin: 1.5rem;
 }
 
 /* footer */
@@ -480,6 +498,14 @@ button:hover {
   display: grid;
   /* height: 80vh; */
   grid-template-columns: 30% auto;
+  margin: 1rem 0 2rem 0;
+  grid-gap: 1rem;
+}
+
+.line-section2 {
+  display: grid;
+  /* height: 80vh; */
+  grid-template-columns: auto;
   margin: 1rem 0 2rem 0;
   grid-gap: 1rem;
 }
@@ -600,6 +626,7 @@ button:hover {
 }
 
 .dropdown-subitem .dropdown-link.active,
+.dropdown-menu .dropdown-link.active,
 .dropdown-sublink.active {
   font-weight: 900;
 }
@@ -681,7 +708,8 @@ button:hover {
   }
 
   /* visualization */
-  .line-section {
+  .line-section,
+  .line-section2 {
     grid-template-columns: 100%;
   }
 }
@@ -693,6 +721,10 @@ button:hover {
     grid-template-columns: repeat(3, 1fr);
     margin-inline: 0 auto;
   }
+
+  .main-section {
+    margin-top: 5rem;
+  }
 }
 
 @media screen and (width <= 800px) {
@@ -701,7 +733,8 @@ button:hover {
   }
 
   /* visualization */
-  .line-section {
+  .line-section,
+  .line-section2 {
     grid-template-columns: 100%;
     height: auto;
   }
@@ -716,6 +749,10 @@ button:hover {
 @media screen and (width >= 1118px) {
   .container {
     margin-inline: auto;
+  }
+
+  .main-section {
+    margin-top: 7rem;
   }
 
   .nav {

@@ -60,18 +60,23 @@
         </li>
         <!-- dropdown 2 -->
         <li class="dropdown-item">
-          <div class="nav-link">
+          <div
+            class="nav-link {% if request.path == '/analytics1/' or request.path == '/analytics2/' %}active{% endif %}"
+          >
             Analytics <i class="ri-arrow-down-s-line dropdown-arrow"></i>
           </div>
+
           <ul class="dropdown-menu">
             <li>
-              <a href="/analytics1l" class="dropdown-link"
+              <a
+                href="/analytics1"
+                class="dropdown-link {% if request.path == '/analytics1/' %}active{% endif %}"
                 ><i class="ri-line-chart-line"></i>Mobile Price Prediction</a
               >
             </li>
             <li>
               <a href="/analytics2" class="dropdown-link"
-                ><i class="ri-line-chart-line"></i>Milk Prediction</a
+                ><i class="ri-focus-3-line"></i>Weapon Detection</a
               >
             </li>
           </ul>

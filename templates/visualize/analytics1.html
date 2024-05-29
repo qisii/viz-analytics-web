@@ -1,95 +1,93 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block title %}Mobile Price Prediction{% endblock %}
+{% block content %} {% load static %}
+<div class="">
+  <!-- Topbar -->
+  {% include 'partials/_topbar.html' %}
 
-{% block title %}Project 3{% endblock %}
-
-{% block content %}
-{% load static %}
-<div class="container">
-
-    <!-- Topbar -->
-    {% include 'partials/_topbar.html' %}
-
-    <!-- Main Content -->
-    <div class="viz-content">
-        <!-- Page Headings -->
-        <p class="page-subheading">Dashboard</p>
-        <p class="page-heading">Lorem ipsum dolor sit amet</p>
-        <div class="overview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam nisi ac nisl scelerisque, et condimentum felis congue.
-        </div>
-        <div class="page-content">
-            <div class="columns-container">
-                <!-- Narration -->
-                <div class="narration-column">
-                    <div class="narration-display">
-                        <hr class="narration-hr">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam nisi ac nisl scelerisque, et condimentum felis congue.</p>
-                    </div>
-                </div>
-                <!-- Form -->
-                <div class="form-column">
-                    <div class="form-display">
-                        <form>
-                            <!-- <label for="date">Date:</label> -->
-                            <input type="date" id="date" name="date">
-                
-                            <!-- <label for="month">Month:</label> -->
-                            <div class="custom-select">
-                                <span class="material-icons-sharp">expand_more</span>
-                                <select id="month" name="month">
-                                    <!-- Add your location options here -->
-                                    <option value="">Select Month</option>
-                                    <option value=""></option>
-                                    <!-- Add other locations as needed -->
-                                </select>
-                            </div>
-                
-                            <!-- <label for="year">Year:</label> -->
-                            <div class="custom-select">
-                                <span class="material-icons-sharp">expand_more</span>
-                                <select id="year" name="year">
-                                    <!-- Add your location options here -->
-                                    <option value="">Select Year</option>
-                                    <option value=""></option>
-                                    <!-- Add other locations as needed -->
-                                </select>
-                            </div>
-                
-                            <!-- <label for="location">Location:</label> -->
-                            <!-- <select id="location" name="location">
-                                <option value="">Select Location</option>
-                                <option value="manila">Manila</option>
-                            </select> -->
-
-                            <div class="custom-select">
-                                <span class="material-icons-sharp">expand_more</span>
-                                <select id="location" name="location">
-                                    <!-- Add your location options here -->
-                                    <option value="">Select Location</option>
-                                    <option value=""></option>
-                                    <!-- Add other locations as needed -->
-                                </select>
-                            </div>
-                
-                            <button type="submit">Submit</button>
-                        </form>
-                    </div>
-                    <!-- End of Form -->
-
-                    <!-- Chart -->
-                    <div class="chart-column">
-                        <div class="chart-display">
-                            
-                        </div>
-                    </div>
-                    <!-- End of Chart -->
-
-                </div>
-                <!-- End of Form Column -->
-            </div>
-            <!-- End of Column Container -->
-        </div>
-        <hr class="more-hr">
-        <!-- End of Page Content -->
+  <!-- Dengue Report Main Content -->
+  <section class="viz main-section container">
+    <div class="heading-text">
+      <span>Prediction </span>
+      <h3>Mobile Price Prediction</h3>
+      <p>
+        Mobile price depends on various factors such as resolution, brand, size,
+        weight, imaging quality, RAM, battery and cpu power. In this dataset, we
+        want to estimate the price of mobile phones using the above features. In
+        this dataset, we want to estimate the price of mobile phones using those
+        features above.
+      </p>
     </div>
+
+    <!-- form, chart, and narration starts -->
+    <div class="line-section2">
+      <!-- form -->
+      <div class="form-card">
+        <form method="POST" action="">
+          {% csrf_token %}
+
+          <div class="select-menu input">
+            <p class="input-name">Sales</p>
+            <input type="text" id="sales" name="sales" value="" />
+            <p class="sample">(example: 8)</p>
+          </div>
+
+          <div class="select-menu input">
+            <p class="input-name">Weight</p>
+            <input type="text" id="weight" name="weight" value="" />
+            <p class="sample">(example: 1.350)</p>
+          </div>
+
+          <div class="select-menu input">
+            <p class="input-name">Resolution</p>
+            <input type="text" id="resolution" name="resolution" value="" />
+            <p class="sample">(example: 16)</p>
+          </div>
+
+          <div class="select-menu input">
+            <p class="input-name">PPI (Phone Pixel Density)</p>
+            <input type="text" id="sales" name="sales" value="" />
+            <p class="sample">(example: 3)</p>
+          </div>
+
+          <div class="select-menu input">
+            <p class="input-name">CPU Core</p>
+            <input type="text" id="cpu" name="cpu" value="" />
+            <p class="sample">(example: 13)</p>
+          </div>
+
+          <div class="select-menu input">
+            <p class="input-name">CPU Frequency</p>
+            <input type="text" id="freq" name="freq" value="" />
+            <p class="sample">(example: 8)</p>
+          </div>
+
+          <div class="select-menu input">
+            <p class="input-name">Internal Memory</p>
+            <input type="text" id="internal" name="internal" value="" />
+            <p class="sample">(example: 2610)</p>
+          </div>
+
+          <div class="select-menu input">
+            <p class="input-name">RAM</p>
+            <input type="text" id="ram" name="ram" value="" />
+            <p class="sample">(example: 7.4)</p>
+          </div>
+
+          <button type="submit">
+            Submit <i class="ri-send-plane-line"></i>
+          </button>
+        </form>
+      </div>
+
+      
+    <!-- form, chart, and narration ends -->
+  </section>
+
+  <!-- viz1 section end -->
 </div>
-{% endblock %}
+<!-- End of Container -->
+{% if messages %} {% for message in messages %}
+<script>
+  swal("{{ message }}");
+</script>
+{% endfor %} {% endif %} {% endblock %}
