@@ -16,6 +16,7 @@
 
   --blue: #407bff;
   /* --red: #cd5c5c; */
+  /* --blue: #030a8c; */
   --red: #ee204e;
   --bg-red: #f4c2c2;
   --yellow: #ffba00;
@@ -204,6 +205,23 @@ img {
   color: var(--red);
 }
 
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.result p,
+.result span {
+  font-size: 1.5rem;
+  font-weight: var(--font-medium);
+}
+
+.result span {
+  color: var(--blue);
+}
 /* ================================ viz and analytics page */
 /* input fields */
 
@@ -382,8 +400,9 @@ button:hover {
 
 .main-image img {
   display: flex;
-  width: 500px;
+  max-width: 500px;
   margin-inline: auto;
+  margin-block: 6rem;
   /* margin: 4rem 0 4rem 0; */
 }
 
@@ -411,17 +430,16 @@ button:hover {
 
 /* cards */
 .cards h2 {
-  margin-top: 5.2rem;
+  margin-top: 3rem;
   font-size: 2rem;
   text-align: center;
   font-weight: var(--font-semi-bold);
 }
 
 .cards-grid {
-  margin-top: 2rem;
+  margin: 2rem 0 7rem 0;
   display: grid;
   gap: 1.5rem;
-  margin-bottom: 5rem;
 }
 
 .card {
@@ -507,6 +525,14 @@ button:hover {
   /* height: 80vh; */
   grid-template-columns: auto;
   margin: 1rem 0 2rem 0;
+  grid-gap: 1rem;
+}
+
+.form-section {
+  display: grid;
+  /* height: 80vh; */
+  grid-template-columns: 50% auto;
+  margin: 1rem 0 1rem 0;
   grid-gap: 1rem;
 }
 
@@ -712,6 +738,10 @@ button:hover {
   .line-section2 {
     grid-template-columns: 100%;
   }
+
+  .main-image img {
+    margin-block: auto;
+  }
 }
 
 /* for small devices */
@@ -741,6 +771,10 @@ button:hover {
 
   button {
     margin: 1rem 0 2rem 0;
+  }
+
+  .main-image img {
+    margin-block: auto;
   }
 }
 

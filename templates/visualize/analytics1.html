@@ -25,6 +25,8 @@
         <form method="POST" action="">
           {% csrf_token %}
 
+          <div class="form-section">
+
           <div class="select-menu input">
             <p class="input-name">Sales</p>
             <input type="text" id="sales" name="sales" value="" />
@@ -73,10 +75,18 @@
             <p class="sample">(example: 7.4)</p>
           </div>
 
+        </div>
+
           <button type="submit">
             Submit <i class="ri-send-plane-line"></i>
           </button>
         </form>
+
+        <!-- result -->
+        <div class="result">
+          <p>Result: <span>00</span></p>
+        </div>
+        
       </div>
 
       
