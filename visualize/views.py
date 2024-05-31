@@ -510,3 +510,29 @@ def geocode_location(location, geolocator):
 # mobile prediction
 def project3(request):
     return render(request, 'visualize/analytics1.html')
+
+
+# def project3(request):
+#     data = pd.read_csv(r'C:\Users\Dell\OneDrive\Desktop\Documents\deploy testing\data-viz-final-project\datavisualization\dataset\Mobile_phone_price.csv')
+#     data = data.drop(['product_id'], axis=1)
+#     x = data.drop('price', axis=1)
+#     y = data['price']
+#     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.20)
+#     model = LinearRegression()
+#     model.fit(x_train, y_train)
+
+#     sales = float(request.GET['sales'])
+#     weight = float(request.GET['weight'])
+#     resolution = float(request.GET['resolution'])
+#     ppi = float(request.GET['ppi'])
+#     cpu = float(request.GET['cpu'])
+#     freq = float(request.GET['freq'])
+#     internal = float(request.GET['internal'])
+#     ram = float(request.GET['ram'])
+
+#     pred = model.predict(np.array([sales,weight,resolution,ppi,cpu,freq,internal,ram]).reshape(1,-1))
+#     pred = round(pred[0])
+
+#     price = "The predicted price is $"+str(pred)
+
+#     return render(request, 'visualize/analytics1.html', {"resulta": price})

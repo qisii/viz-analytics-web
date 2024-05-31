@@ -47,7 +47,7 @@
 
           <div class="select-menu input">
             <p class="input-name">PPI (Phone Pixel Density)</p>
-            <input type="text" id="sales" name="sales" value="" />
+            <input type="text" id="ppi" name="ppi" value="" />
             <p class="sample">(example: 3)</p>
           </div>
 
@@ -83,8 +83,17 @@
         </form>
 
         <!-- result -->
-        <div class="result">
-          <p>Result: <span>00</span></p>
+        <div class="result-section">
+          <div class="result">
+            <p>Result: <span>{{result}}</span></p>
+          </div>
+          
+          <div class="narration">
+            <p>The result will be the estimated price of the mobile phone based on the provided inputs.
+               I chose to use the Linear Regression model for this estimation because it achieved the highest accuracy rate among all the models we trained. 
+               The accuracy rate obtained with the Linear Regression model is 61%.
+          </p>
+          </div>
         </div>
         
       </div>
@@ -100,4 +109,24 @@
 <script>
   swal("{{ message }}");
 </script>
-{% endfor %} {% endif %} {% endblock %}
+{% endfor %} {% endif %} 
+
+
+<!-- JavaScript to handle input events -->
+<script>
+  document.querySelectorAll(".select-menu").forEach((menu) => {
+  const inputField = menu.querySelector("input");
+  const inputName = menu.querySelector(".input-name");
+
+  inputField.addEventListener("input", () => {
+    // Check if input field is empty
+    if (inputField.value.trim() === "") {
+      inputName.classList.remove("hide");
+    } else {
+      inputName.classList.add("hide");
+    }
+  });
+});
+
+</script>
+{% endblock %}

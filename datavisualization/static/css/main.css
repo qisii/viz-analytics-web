@@ -178,6 +178,8 @@ img {
   margin-bottom: 5rem;
 } */
 
+/* =============================== analytics */
+
 /* headings */
 /* ================================ viz */
 
@@ -205,23 +207,38 @@ img {
   color: var(--red);
 }
 
-.result {
+.result-section {
+  display: grid;
+  /* height: 80vh; */
+  grid-template-columns: 40% auto;
+  grid-gap: 2rem;
+  margin-top: 1rem;
+}
+
+.result-section .result {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem;
-  padding: 1rem;
 }
 
-.result p,
-.result span {
+.result-section .result p,
+.result-section .result span {
   font-size: 1.5rem;
   font-weight: var(--font-medium);
 }
 
-.result span {
+.result-section .result span {
   color: var(--blue);
 }
+
+.result-section .narration {
+  justify-content: center;
+}
+
+.line-section2 .select-menu .input-name.hide {
+  display: none;
+}
+
 /* ================================ viz and analytics page */
 /* input fields */
 
