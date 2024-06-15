@@ -1,1 +1,1 @@
-![home!](datavisualization\datavisualization\static\images\homepage.jpeg)
+![home!](datavisualization/datavisualization/static/images/homepage.jpeg)
